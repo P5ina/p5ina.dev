@@ -28,7 +28,7 @@
 		{
 			title: 'Package',
 			description: 'GPS game about building logistics empire.',
-			video: `${CDN_URL}/projects/package.mp4`,
+			video: `${CDN_URL}/projects/package.mp4?v=2`,
 			image: `${CDN_URL}/projects/package.jpg`,
 			tags: ['Unity', 'C#', 'iOS', 'Android'],
 			link: 'https://package-landing.vercel.app'
@@ -247,7 +247,7 @@
 					<div class="relative">
 						<!-- Decorative elements -->
 						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-xl"></div>
-						<div class="relative rounded-2xl border border-white/10 bg-gray-900/80 p-8 backdrop-blur-sm">
+						<div class="glass-card relative rounded-2xl p-8">
 							<h3 class="mb-8 text-xl font-semibold">Experience Overview</h3>
 							<div class="space-y-6">
 								<div class="group flex items-center justify-between border-b border-white/5 pb-4">
@@ -286,7 +286,7 @@
 				{#each technologies as tech, i}
 					<div
 						use:scrollReveal={{ delay: stagger(i, 100), origin: 'bottom', scale: 0.95 }}
-						class="group relative w-full overflow-hidden rounded-xl border border-white/5 bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-500 hover:border-white/20 hover:bg-gray-900/80 sm:w-64"
+						class="glass-card group relative w-full overflow-hidden rounded-xl p-6 sm:w-64"
 					>
 						<div
 							class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -371,7 +371,7 @@
 						</div>
 
 						<div class="{i % 2 === 0 ? 'md:mr-12' : 'md:ml-12'} ml-16 md:ml-0">
-							<div class="rounded-xl border border-white/5 bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20">
+							<div class="glass-card rounded-xl p-6">
 								<span class="mb-2 inline-block rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-blue-400">
 									{item.year}
 								</span>

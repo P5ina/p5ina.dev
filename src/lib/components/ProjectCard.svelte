@@ -38,7 +38,7 @@
 <a
 	href={link}
 	use:scrollReveal={{ delay, scale: 0.95 }}
-	class="group relative overflow-hidden rounded-2xl border border-white/5 bg-gray-900/30 backdrop-blur-sm transition-all duration-500 hover:border-white/20 hover:shadow-2xl hover:shadow-purple-500/10"
+	class="glass-card group relative overflow-hidden rounded-2xl"
 	onmouseenter={handleMouseEnter}
 	onmouseleave={handleMouseLeave}
 >
