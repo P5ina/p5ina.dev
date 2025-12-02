@@ -20,7 +20,7 @@
 				<p class="text-lg text-gray-500">Game Developer</p>
 			</div>
 
-			<div class="pt-8">
+			<div class="flex flex-col items-center gap-4 pt-8 sm:flex-row sm:justify-center">
 				<a
 					href="#contact"
 					class="inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 font-medium text-black transition-colors hover:bg-gray-200"
@@ -32,6 +32,20 @@
 							stroke-linejoin="round"
 							stroke-width="2"
 							d="M17 8l4 4m0 0l-4 4m4-4H3"
+						/>
+					</svg>
+				</a>
+				<a
+					href="/blog"
+					class="inline-flex items-center gap-2 rounded-md border border-gray-700 px-6 py-3 font-medium text-white transition-colors hover:border-gray-500 hover:bg-gray-900"
+				>
+					Read Blog
+					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
 						/>
 					</svg>
 				</a>
