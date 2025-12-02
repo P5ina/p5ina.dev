@@ -40,6 +40,7 @@
 			loop={loop || autoplay}
 			muted={muted || autoplay}
 			playsinline
+			preload={autoplay ? 'auto' : 'none'}
 		>
 			<source {src} type="video/mp4" />
 			Your browser does not support the video tag.
