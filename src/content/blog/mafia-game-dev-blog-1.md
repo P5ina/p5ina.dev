@@ -42,31 +42,31 @@ The game begins with players choosing their starting region. This only affects y
 
 Thanks to Boris's spherical hashing system, we can divide the map into triangles of various sizes.
 
-<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-1.mp4?v=2" />
+<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-2.mp4?v=2" autoplay />
 
 ### World Navigation
 
 We're not entirely sure if this is the final implementation, but currently movement is simple point-and-click navigation across the map.
 
-<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-5.mp4?v=2" />
+<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-5.mp4?v=2" autoplay />
 
 ### Loot Boxes
 
 Loot boxes are scattered across the map, waiting to be discovered as you explore the world. Opening them rewards you with various cards, though typically weaker ones.
 
-<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-2.mp4?v=2" />
+<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-1.mp4?v=2" autoplay />
 
 ### Inventory and Deck
 
 Your deck can hold up to 5 cards. Currently, inventory size is unlimited, but this will change in future updates.
 
-<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-3.mp4?v=2" />
+<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-3.mp4?v=2" autoplay />
 
 ### Battles
 
 Combat is an auto-battler system where players assemble a deck of 5 cards and watch them fight it out. Cards can have various effects that interact in interesting ways during battle, creating unique synergies and combinations. This system allows players to defend themselves fairly even when they're offline.
 
-<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-4.mp4?v=2" />
+<VideoPlayer src="https://cdn.p5ina.dev/videos/clip-4.mp4?v=2" autoplay />
 
 ## What's Next?
 
