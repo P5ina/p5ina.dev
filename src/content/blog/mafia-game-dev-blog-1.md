@@ -78,6 +78,6 @@ We're working hard to bring this game to life. Here's what we're planning to add
 
 There's still a lot to do — balancing cards, polishing the UI, adding more content, and optimizing performance. But we're excited about where this is heading.
 
-If you have any thoughts, suggestions, or feedback, we'd love to hear from you! Feel free to reach out via email or drop a comment. Your input helps us shape the game into something players will truly enjoy.
+If you have any thoughts, suggestions, or feedback, we'd love to hear from you! Feel free to reach out via email or drop a comment in [Telegram](https://t.me/package_game). Your input helps us shape the game into something players will truly enjoy.
 
 Stay tuned for more devlogs as we continue this journey!
