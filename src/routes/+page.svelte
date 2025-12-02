@@ -1,97 +1,272 @@
+<script lang="ts">
+	import { scrollReveal, stagger } from '$lib/actions/scrollReveal';
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import godotIcon from '$lib/images/godotengine.svg?raw';
+	import unityIcon from '$lib/images/unity.svg?raw';
+	import swiftIcon from '$lib/images/swift.svg?raw';
+
+	const CDN_URL = 'https://cdn.p5ina.dev';
+
+	// Projects data - add video property for video previews
+	const projects = [
+		{
+			title: 'Logi.Charm',
+			description: 'Funny little puzzle game about logic gates.',
+			video: `${CDN_URL}/projects/logi-charm.mp4`,
+			image: `${CDN_URL}/projects/logi-charm.png`,
+			tags: ['Godot', 'GDScript', 'Web'],
+			link: 'https://p5ina.itch.io/logi-charm'
+		},
+		{
+			title: 'ESC',
+			description: 'Puzzle game about the control flow, with hidden twist.',
+			video: `${CDN_URL}/projects/esc.mp4`,
+			image: `${CDN_URL}/projects/esc.png`,
+			tags: ['Godot', 'GDScript', 'Web'],
+			link: 'https://p5ina.itch.io/logi-charm'
+		},
+		{
+			title: 'Package',
+			description: 'GPS game about building logistics empire.',
+			video: `${CDN_URL}/projects/package.mp4`,
+			image: `${CDN_URL}/projects/package.jpg`,
+			tags: ['Unity', 'C#', 'iOS', 'Android'],
+			link: 'https://package-landing.vercel.app'
+		},
+	];
+
+	// Current status
+	const currentStatus = {
+		project: 'New logistics game',
+		description: 'Working on a new game inspired by Package',
+		status: 'In Development'
+	};
+
+	// Timeline data
+	const timeline = [
+		{
+			year: '2017',
+			title: 'Started Game Development',
+			description: 'Began learning game development with basic engines and tutorials'
+		},
+		{
+			year: '2019',
+			title: 'First Published Game',
+			description: 'Released my first game on Android, built with Unity'
+		},
+		{
+			year: '2021',
+			title: 'Package Released',
+			description: 'Launched Package on April 13, reaching 1000 monthly users'
+		},
+		{
+			year: '2025',
+			title: 'Professional Freelancing',
+			description: 'Started taking freelance projects on Fiverr and Upwork'
+		}
+	];
+
+	// Technologies data
+	const technologies = [
+		{
+			name: 'Godot Engine',
+			description: 'Advanced experience in GDScript and C#',
+			color: 'bg-blue-600',
+			icon: godotIcon
+		},
+		{
+			name: 'Unity Engine',
+			description: 'Proficient in C# and Unity ecosystem',
+			color: 'bg-gray-700',
+			icon: unityIcon
+		},
+		{
+			name: 'Swift',
+			description: 'iOS and macOS app development',
+			color: 'bg-gray-800',
+			icon: swiftIcon
+		}
+	];
+</script>
+
 <svelte:head>
-	<title>P5ina's Portfolio</title>
+	<title>P5ina - Game Developer</title>
 	<meta
 		name="description"
 		content="Timur Turatbekov (P5ina) - Game Developer with 8 years of experience in Godot and Unity engines"
 	/>
 </svelte:head>
 
-<main class="min-h-screen bg-black text-white">
+<main class="min-h-screen overflow-x-hidden bg-black text-white">
 	<!-- Hero Section -->
-	<section class="container mx-auto max-w-4xl px-6 py-32">
-		<div class="space-y-8 text-center">
-			<div class="space-y-4">
-				<h1 class="text-6xl font-bold tracking-tight md:text-8xl">P5ina</h1>
-				<div class="mx-auto h-0.5 w-24 bg-white"></div>
-			</div>
+	<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+		<!-- Animated background gradient -->
+		<div class="absolute inset-0 opacity-30">
+			<div
+				class="animate-gradient-shift absolute -left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur-[120px]"
+			></div>
+			<div
+				class="animate-gradient-shift-delayed absolute -right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-gradient-to-r from-purple-600 to-pink-600 blur-[120px]"
+			></div>
+		</div>
 
-			<div class="space-y-2">
-				<h2 class="text-xl font-medium text-gray-400 md:text-2xl">Timur Turatbekov</h2>
-				<p class="text-lg text-gray-500">Game Developer</p>
-			</div>
+		<div class="container relative z-10 mx-auto max-w-5xl px-6">
+			<div class="space-y-8 text-center">
+				<!-- Animated name reveal -->
+				<div class="overflow-hidden">
+					<h1 class="animate-slide-up text-7xl font-bold tracking-tight md:text-9xl">
+						<span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+							P5ina
+						</span>
+					</h1>
+				</div>
 
-			<div class="flex flex-col items-center gap-4 pt-8 sm:flex-row sm:justify-center">
-				<a
-					href="#contact"
-					class="inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 font-medium text-black transition-colors hover:bg-gray-200"
+				<!-- Elegant divider -->
+				<div class="flex items-center justify-center gap-4">
+					<div class="animate-expand-left h-px w-16 bg-gradient-to-r from-transparent to-white/50"></div>
+					<div class="animate-fade-in-delayed h-2 w-2 rotate-45 bg-white/80"></div>
+					<div class="animate-expand-right h-px w-16 bg-gradient-to-l from-transparent to-white/50"></div>
+				</div>
+
+				<div class="animate-fade-in-slow space-y-3">
+					<h2 class="text-2xl font-light tracking-wide text-gray-300 md:text-3xl">
+						Timur Turatbekov
+					</h2>
+					<p class="text-lg tracking-widest text-gray-500 uppercase">Game Developer</p>
+				</div>
+
+				<div
+					class="animate-fade-in-delayed flex flex-col items-center gap-4 pt-8 sm:flex-row sm:justify-center"
 				>
-					Get In Touch
-					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M17 8l4 4m0 0l-4 4m4-4H3"
-						/>
-					</svg>
-				</a>
-				<a
-					href="/blog"
-					class="inline-flex items-center gap-2 rounded-md border border-gray-700 px-6 py-3 font-medium text-white transition-colors hover:border-gray-500 hover:bg-gray-900"
-				>
-					Read Blog
-					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-						/>
-					</svg>
-				</a>
+					<a
+						href="#contact"
+						class="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-4 font-medium text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+					>
+						<span class="relative z-10">Get In Touch</span>
+						<svg
+							class="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M17 8l4 4m0 0l-4 4m4-4H3"
+							/>
+						</svg>
+					</a>
+					<a
+						href="/blog"
+						class="group inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/5"
+					>
+						<span>Read Blog</span>
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+							/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scroll indicator -->
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+			<div class="animate-bounce-slow flex flex-col items-center gap-2 text-gray-500">
+				<span class="text-xs tracking-widest uppercase">Scroll</span>
+				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+				</svg>
+			</div>
+		</div>
+	</section>
+
+	<!-- Status Section -->
+	<section class="border-b border-white/5 py-6">
+		<div class="container mx-auto max-w-5xl px-6">
+			<div
+				use:scrollReveal={{ duration: 800 }}
+				class="flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-4 backdrop-blur-sm sm:flex-row"
+			>
+				<div class="flex items-center gap-4">
+					<div class="relative flex h-3 w-3">
+						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+						<span class="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+					</div>
+					<div>
+						<p class="text-sm text-gray-400">Currently working on</p>
+						<p class="font-medium text-white">{currentStatus.project}</p>
+					</div>
+				</div>
+				<div class="flex items-center gap-3">
+					<span class="rounded-full bg-green-500/20 px-3 py-1 text-xs font-medium text-green-400">
+						{currentStatus.status}
+					</span>
+					<span class="text-sm text-gray-500">{currentStatus.description}</span>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- About Section -->
-	<section id="about" class="border-t border-gray-800">
-		<div class="container mx-auto max-w-4xl px-6 py-24">
-			<div class="grid items-start gap-16 md:grid-cols-2">
-				<div class="space-y-6">
-					<h2 class="text-3xl font-bold">About</h2>
-					<div class="space-y-4 leading-relaxed text-gray-300">
+	<section id="about" class="relative py-32">
+		<div class="container mx-auto max-w-5xl px-6">
+			<div class="grid items-center gap-16 lg:grid-cols-2">
+				<div use:scrollReveal={{ origin: 'left', duration: 1000 }}>
+					<span class="mb-4 inline-block text-sm tracking-widest text-gray-500 uppercase">About Me</span>
+					<h2 class="mb-8 text-4xl font-bold leading-tight md:text-5xl">
+						Crafting Digital<br />
+						<span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+							>Experiences</span
+						>
+					</h2>
+					<div class="space-y-6 text-lg leading-relaxed text-gray-400">
 						<p>
-							I'm a passionate game developer with <span class="font-medium text-white"
-								>8 years of experience</span
-							>
+							I'm a passionate game developer with <span class="font-medium text-white">8 years of experience</span>
 							creating interactive experiences. I specialize in bringing creative visions to life through
 							code and design.
 						</p>
-						<p class="text-gray-400">
+						<p>
 							My expertise spans multiple game engines and platforms, with a focus on creating
 							engaging gameplay mechanics and polished user experiences.
 						</p>
 					</div>
 				</div>
 
-				<div class="rounded-lg border border-gray-800 bg-gray-900 p-6">
-					<h3 class="mb-6 text-xl font-semibold">Experience</h3>
-					<div class="space-y-4">
-						<div
-							class="flex items-center justify-between border-b border-gray-800 py-2 last:border-b-0"
-						>
-							<span class="font-medium">Game Development</span>
-							<span class="text-gray-400">8 years</span>
-						</div>
-						<div
-							class="flex items-center justify-between border-b border-gray-800 py-2 last:border-b-0"
-						>
-							<span class="font-medium">Engines</span>
-							<span class="text-gray-400">Godot, Unity</span>
-						</div>
-						<div class="flex items-center justify-between py-2">
-							<span class="font-medium">Focus</span>
-							<span class="text-gray-400">Prototyping, Full Dev</span>
+				<div use:scrollReveal={{ origin: 'right', duration: 1000, delay: 200 }}>
+					<div class="relative">
+						<!-- Decorative elements -->
+						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-xl"></div>
+						<div class="relative rounded-2xl border border-white/10 bg-gray-900/80 p-8 backdrop-blur-sm">
+							<h3 class="mb-8 text-xl font-semibold">Experience Overview</h3>
+							<div class="space-y-6">
+								<div class="group flex items-center justify-between border-b border-white/5 pb-4">
+									<span class="text-gray-300 transition-colors group-hover:text-white">Game Development</span>
+									<span class="rounded-full bg-white/10 px-4 py-1 text-sm text-white">8+ years</span>
+								</div>
+								<div class="group flex items-center justify-between border-b border-white/5 pb-4">
+									<span class="text-gray-300 transition-colors group-hover:text-white">Engines</span>
+									<span class="rounded-full bg-white/10 px-4 py-1 text-sm text-white">Godot, Unity</span>
+								</div>
+								<div class="group flex items-center justify-between border-b border-white/5 pb-4">
+									<span class="text-gray-300 transition-colors group-hover:text-white">Projects Completed</span>
+									<span class="rounded-full bg-white/10 px-4 py-1 text-sm text-white">10+</span>
+								</div>
+								<div class="group flex items-center justify-between">
+									<span class="text-gray-300 transition-colors group-hover:text-white">Focus Areas</span>
+									<span class="rounded-full bg-white/10 px-4 py-1 text-sm text-white">Prototyping, Full Dev</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -99,107 +274,305 @@
 		</div>
 	</section>
 
-	<!-- Skills Section -->
-	<section class="border-t border-gray-800">
-		<div class="container mx-auto max-w-4xl px-6 py-24">
-			<div class="space-y-12">
-				<h2 class="text-center text-3xl font-bold">Technologies</h2>
+	<!-- Technologies Section -->
+	<section class="relative py-32">
+		<div class="container mx-auto max-w-5xl px-6">
+			<div class="mb-16 text-center" use:scrollReveal>
+				<span class="mb-4 inline-block text-sm tracking-widest text-gray-500 uppercase">Skills</span>
+				<h2 class="text-4xl font-bold md:text-5xl">Technologies</h2>
+			</div>
 
-				<div class="grid gap-6 md:grid-cols-2">
+			<div class="flex flex-wrap justify-center gap-6">
+				{#each technologies as tech, i}
 					<div
-						class="rounded-lg border border-gray-800 bg-gray-900 p-8 transition-colors hover:border-gray-700"
+						use:scrollReveal={{ delay: stagger(i, 100), origin: 'bottom', scale: 0.95 }}
+						class="group relative w-full overflow-hidden rounded-xl border border-white/5 bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-500 hover:border-white/20 hover:bg-gray-900/80 sm:w-64"
 					>
-						<div class="mb-4 flex items-center gap-4">
-							<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-600">
-								<svg role="img" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor"
-									><path
-										d="M9.5598.683c-1.096.244-2.1812.5831-3.1983 1.0951.023.8981.081 1.7582.199 2.6323-.395.253-.81.47-1.178.766-.375.288-.7581.564-1.0971.9011-.6781-.448-1.3962-.869-2.1352-1.2411C1.3532 5.6934.608 6.6186 0 7.6546c.458.7411.936 1.4352 1.4521 2.0942h.014v6.3565c.012 0 .023 0 .035.003l3.8963.376c.204.02.364.184.378.3891l.12 1.7201 3.3994.242.234-1.587c.03-.206.207-.358.415-.358h4.1114c.208 0 .385.152.415.358l.234 1.587 3.3993-.242.12-1.72a.4196.4196 0 01.378-.3891l3.8954-.376c.012 0 .023-.003.035-.003v-.5071h.002V9.7498h.014c.516-.659.994-1.3531 1.4521-2.0942-.608-1.036-1.3541-1.9611-2.1512-2.8192-.739.372-1.4571.793-2.1352 1.2411-.339-.337-.721-.613-1.096-.901-.369-.296-.7841-.5131-1.1781-.7661.117-.8741.175-1.7342.199-2.6323-1.0171-.512-2.1012-.851-3.1983-1.095-.438.736-.838 1.533-1.1871 2.3121-.414-.069-.829-.094-1.2461-.099h-.016c-.417.005-.832.03-1.2461.099-.349-.779-.749-1.576-1.1881-2.3121l.001-.001zM6.4765 9.9889c1.2971 0 2.3492 1.0511 2.3492 2.3482s-1.052 2.3482-2.3492 2.3482c-1.296 0-2.3482-1.051-2.3482-2.3482 0-1.297 1.0511-2.3482 2.3482-2.3482zm11.049 0c1.296 0 2.3482 1.0511 2.3482 2.3482s-1.0511 2.3482-2.3482 2.3482-2.3492-1.051-2.3492-2.3482c0-1.297 1.051-2.3482 2.3492-2.3482zm-10.824.9301c-.861 0-1.559.698-1.559 1.5591s.698 1.5582 1.559 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5591-1.559zm10.598 0c-.8611 0-1.5582.698-1.5582 1.5591s.697 1.5582 1.5581 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5592-1.559zm-5.2985.453c.417 0 .757.308.757.6871v2.1622c0 .379-.339.687-.757.687s-.756-.308-.756-.687V12.059c0-.379.339-.687.756-.687zM1.4601 16.9464c.002.377.006.789.006.871 0 3.7014 4.6944 5.4795 10.5269 5.5005h.014c5.8325-.02 10.5259-1.7991 10.5259-5.5004 0-.084.005-.495.007-.871l-3.5023.338-.121 1.729a.421.421 0 01-.389.3901l-4.1814.296a.4203.4203 0 01-.415-.358l-.238-1.6141h-3.3863l-.238 1.6141a.4192.4192 0 01-.4451.357l-4.1513-.296c-.208-.015-.375-.181-.389-.389l-.12-1.7292-3.5044-.337z"
-									/></svg
-								>
+						<div
+							class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+						></div>
+						<div class="relative">
+							<div class="tech-icon mb-4 flex h-12 w-12 items-center justify-center rounded-lg {tech.color}">
+								{@html tech.icon}
 							</div>
-							<h3 class="text-xl font-semibold">Godot Engine</h3>
+							<h3 class="mb-2 text-lg font-semibold">{tech.name}</h3>
+							<p class="text-sm text-gray-500">{tech.description}</p>
 						</div>
-						<p class="text-gray-400">Advanced experience in GDScript and C#</p>
 					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
 
-					<div
-						class="rounded-lg border border-gray-800 bg-gray-900 p-8 transition-colors hover:border-gray-700"
+	<!-- Projects Section -->
+	<section id="projects" class="relative py-32">
+		<div class="container mx-auto max-w-6xl px-6">
+			<div class="mb-16 text-center" use:scrollReveal>
+				<span class="mb-4 inline-block text-sm tracking-widest text-gray-500 uppercase">Portfolio</span>
+				<h2 class="text-4xl font-bold md:text-5xl">Featured Projects</h2>
+			</div>
+
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{#each projects as project, i}
+					<ProjectCard
+						title={project.title}
+						description={project.description}
+						video={project.video}
+						image={project.image}
+						tags={project.tags}
+						link={project.link}
+						delay={stagger(i, 150)}
+					/>
+				{/each}
+			</div>
+
+			<div class="mt-12 text-center" use:scrollReveal={{ delay: 400 }}>
+				<a
+					href="#projects"
+					class="group inline-flex items-center gap-2 text-gray-400 transition-colors hover:text-white"
+				>
+					<span>View All Projects</span>
+					<svg
+						class="h-4 w-4 transition-transform group-hover:translate-x-1"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
 					>
-						<div class="mb-4 flex items-center gap-4">
-							<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-700">
-								<svg role="img" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"
-									/>
-								</svg>
-							</div>
-							<h3 class="text-xl font-semibold">Unity Engine</h3>
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Timeline Section -->
+	<section id="journey" class="relative py-32">
+		<div class="container mx-auto max-w-4xl px-6">
+			<div class="mb-16 text-center" use:scrollReveal>
+				<span class="mb-4 inline-block text-sm tracking-widest text-gray-500 uppercase">Journey</span>
+				<h2 class="text-4xl font-bold md:text-5xl">My Timeline</h2>
+			</div>
+
+			<div class="relative">
+				<!-- Timeline line -->
+				<div class="absolute left-8 top-0 h-full w-px bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 md:left-1/2"></div>
+
+				{#each timeline as item, i}
+					<div
+						use:scrollReveal={{ delay: stagger(i, 150), origin: i % 2 === 0 ? 'left' : 'right' }}
+						class="relative mb-12 last:mb-0 {i % 2 === 0 ? 'md:pr-[50%] md:text-right' : 'md:pl-[50%] md:ml-auto'}"
+					>
+						<!-- Timeline dot -->
+						<div
+							class="absolute left-8 top-0 flex h-4 w-4 -translate-x-1/2 items-center justify-center md:left-1/2"
+						>
+							<div class="h-4 w-4 rounded-full border-2 border-white bg-black"></div>
+							<div class="absolute h-4 w-4 animate-ping rounded-full bg-white/30"></div>
 						</div>
-						<p class="text-gray-400">Proficient in C# and Unity's ecosystem</p>
+
+						<div class="{i % 2 === 0 ? 'md:mr-12' : 'md:ml-12'} ml-16 md:ml-0">
+							<div class="rounded-xl border border-white/5 bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-white/20">
+								<span class="mb-2 inline-block rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-blue-400">
+									{item.year}
+								</span>
+								<h3 class="mb-2 text-xl font-semibold">{item.title}</h3>
+								<p class="text-gray-500">{item.description}</p>
+							</div>
+						</div>
 					</div>
-				</div>
+				{/each}
 			</div>
 		</div>
 	</section>
 
 	<!-- Contact Section -->
-	<section id="contact" class="border-t border-gray-800">
-		<div class="container mx-auto max-w-4xl px-6 py-24">
-			<div class="space-y-12 text-center">
-				<div class="space-y-4">
-					<h2 class="text-3xl font-bold">Let's Work Together</h2>
-					<p class="mx-auto max-w-2xl text-gray-400">
-						Ready to bring your game idea to life? I'm available for freelance projects.
-					</p>
-				</div>
+	<section id="contact" class="relative py-32">
+		<!-- Background gradient -->
+		<div class="absolute inset-0 opacity-20">
+			<div
+				class="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur-[150px]"
+			></div>
+		</div>
 
-				<div class="flex flex-col justify-center gap-4 sm:flex-row">
+		<div class="container relative z-10 mx-auto max-w-4xl px-6">
+			<div class="text-center" use:scrollReveal>
+				<span class="mb-4 inline-block text-sm tracking-widest text-gray-500 uppercase">Contact</span>
+				<h2 class="mb-4 text-4xl font-bold md:text-5xl">Let's Work Together</h2>
+				<p class="mx-auto mb-12 max-w-xl text-lg text-gray-400">
+					Ready to bring your game idea to life? I'm available for freelance projects and
+					collaborations.
+				</p>
+			</div>
+
+			<div class="flex flex-col justify-center gap-4 sm:flex-row" use:scrollReveal={{ delay: 200 }}>
+				<a
+					href="https://www.fiverr.com/p5ina_21"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-green-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(22,163,74,0.4)]"
+				>
+					<svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
+						<path
+							d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"
+						/>
+					</svg>
+					<span>Hire me on Fiverr</span>
+				</a>
+
+				<a
+					href="https://www.upwork.com/freelancers/~0125b910191564f773"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+				>
+					<svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
+						<path
+							d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"
+						/>
+					</svg>
+					<span>Hire me on Upwork</span>
+				</a>
+			</div>
+
+			<div class="mt-12 text-center" use:scrollReveal={{ delay: 300 }}>
+				<p class="text-gray-500">
+					Or reach out directly at
 					<a
-						href="https://www.fiverr.com/p5ina_21"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center gap-3 rounded-md bg-green-600 px-6 py-3 font-medium text-white transition-colors hover:bg-green-700"
+						href="mailto:timatur242005@gmail.com"
+						class="text-white underline decoration-white/20 underline-offset-4 transition-all hover:decoration-white/60"
 					>
-						<svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
-							<path
-								d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"
-							/>
-						</svg>
-						Hire me on Fiverr
+						timatur242005@gmail.com
 					</a>
-
-					<a
-						href="https://www.upwork.com/freelancers/~0125b910191564f773"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center gap-3 rounded-md bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
-					>
-						<svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
-							<path
-								d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"
-							/>
-						</svg>
-						Hire me on Upwork
-					</a>
-				</div>
-
-				<div class="border-t border-gray-800 pt-8">
-					<p class="text-gray-500">
-						Or reach out directly at
-						<a
-							href="mailto:timatur242005@gmail.com"
-							class="text-white underline decoration-gray-600 transition-colors hover:text-gray-300 hover:decoration-gray-400"
-						>
-							timatur242005@gmail.com
-						</a>
-					</p>
-				</div>
+				</p>
 			</div>
 		</div>
 	</section>
+
+	<!-- Footer -->
+	<footer class="border-t border-white/5 py-8">
+		<div class="container mx-auto max-w-5xl px-6">
+			<div class="flex flex-col items-center justify-between gap-4 text-sm text-gray-500 md:flex-row">
+				<p>&copy; {new Date().getFullYear()} P5ina. All rights reserved.</p>
+				<div class="flex gap-6">
+					<a href="#about" class="transition-colors hover:text-white">About</a>
+					<a href="#projects" class="transition-colors hover:text-white">Projects</a>
+					<a href="#journey" class="transition-colors hover:text-white">Journey</a>
+					<a href="#contact" class="transition-colors hover:text-white">Contact</a>
+				</div>
+			</div>
+		</div>
+	</footer>
 </main>
 
 <style>
+	/* Custom animations */
+	@keyframes slide-up {
+		from {
+			opacity: 0;
+			transform: translateY(60px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes expand-left {
+		from {
+			width: 0;
+			opacity: 0;
+		}
+		to {
+			width: 4rem;
+			opacity: 1;
+		}
+	}
+
+	@keyframes expand-right {
+		from {
+			width: 0;
+			opacity: 0;
+		}
+		to {
+			width: 4rem;
+			opacity: 1;
+		}
+	}
+
+	@keyframes gradient-shift {
+		0%,
+		100% {
+			transform: translate(0, 0) scale(1);
+		}
+		50% {
+			transform: translate(50px, 30px) scale(1.1);
+		}
+	}
+
+	@keyframes bounce-slow {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(10px);
+		}
+	}
+
+	.animate-slide-up {
+		animation: slide-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+	}
+
+	.animate-fade-in-slow {
+		animation: fade-in 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+		opacity: 0;
+	}
+
+	.animate-fade-in-delayed {
+		animation: fade-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+		opacity: 0;
+	}
+
+	.animate-expand-left {
+		animation: expand-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+		width: 0;
+	}
+
+	.animate-expand-right {
+		animation: expand-right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+		width: 0;
+	}
+
+	.animate-gradient-shift {
+		animation: gradient-shift 15s ease-in-out infinite;
+	}
+
+	.animate-gradient-shift-delayed {
+		animation: gradient-shift 15s ease-in-out infinite;
+		animation-delay: -7.5s;
+	}
+
+	.animate-bounce-slow {
+		animation: bounce-slow 2s ease-in-out infinite;
+	}
+
+	/* Tech icon SVG styling */
+	.tech-icon :global(svg) {
+		width: 1.5rem;
+		height: 1.5rem;
+		fill: currentColor;
+		color: white;
+	}
+
 	/* Smooth scrolling */
 	:global(html) {
 		scroll-behavior: smooth;
